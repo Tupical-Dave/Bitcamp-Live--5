@@ -2,9 +2,12 @@ button {
     all: unset;
 }
 
+html,
 body {
     font-family: 'Plus Jakarta Sans', sans-serif;
     margin: 0px;
+    max-width: 100%;
+    overflow-x: hidden;
 }
 
 h1 {
@@ -40,19 +43,16 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin: 16px 0 38px;
-   
+    margin: 16px 0 45px;
 }
 
 header span {
-font-size: 28px;
-font-weight: 800;
-line-height: 35px;
-letter-spacing: 0px;
-text-align: left;
-color: #13183F;
-
-
+    font-size: 28px;
+    font-weight: 800;
+    line-height: 35px;
+    letter-spacing: 0px;
+    text-align: left;
+    color: #13183F;
 }
 
 .get-started-header {
@@ -64,6 +64,12 @@ color: #13183F;
     background: #13183F;
     border-radius: 28px;
     padding: 9px 24px 11px 24px;
+    z-index: 2;
+}
+
+.get-started-header:hover {
+    background: #666CA3;
+    cursor: pointer;
 }
 
 /* body */
@@ -82,9 +88,11 @@ color: #13183F;
     border-radius: 31.5px;
     margin-top: 24px;
     margin-bottom: 24px;
-    align-items: center;
-    margin-left: auto;
-    margin-right: auto;
+}
+
+.get-started-hero:hover {
+    background: linear-gradient(0deg, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), linear-gradient(180deg, #FF6F48 0%, #F02AA6 100%);
+    cursor: pointer;
 }
 
 .image-container {
@@ -93,8 +101,16 @@ color: #13183F;
     align-items: center;
 }
 
-.image-container img {
+#mobile-main-photo {
     width: 375px;
+}
+
+#tablet-main-photo {
+    display: none;
+}
+
+#desktop-main-photo {
+    display: none;
 }
 
 .popular-courses {
@@ -108,12 +124,19 @@ color: #13183F;
     margin-top: 0px;
     margin-bottom: 0px;
     box-sizing: border-box;
-    width: 100%;
+    width: 443px;
+}
+
+.popular-courses:hover {
+    background: linear-gradient(180deg, #FF6F48 0%, #F02AA6 100%);
+    cursor: default;
 }
 
 .card-wrapper {
     display: flex;
     flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 10px;
 }
 
 .card-container {
@@ -121,9 +144,11 @@ color: #13183F;
     background: #FFFFFF;
     padding-left: 28px;
     padding-right: 29px;
-    width: 339px;
+    width: 443px;
     gap: 11px;
-    margin-left: 11px;
+    box-sizing: border-box;
+    border-radius: 10px;
+    height: 259px;
 }
 
 .card-container img {
@@ -132,24 +157,24 @@ color: #13183F;
 }
 
 .card-container h2 {
-font-size: 20px;
-font-weight: 800;
-line-height: 25px;
-letter-spacing: 0px;
-text-align: left;
-color: #13183F;
-margin-top: 0px;
+    font-size: 20px;
+    font-weight: 800;
+    line-height: 25px;
+    letter-spacing: 0px;
+    text-align: left;
+    color: #13183F;
+    margin-top: 0px;
 }
 
 .card-container p {
-font-size: 16px;
-font-weight: 500;
-line-height: 26px;
-letter-spacing: 0px;
-text-align: left;
-color: #83869A;
-margin-bottom: 24px;
-margin-top: 0px;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 26px;
+    letter-spacing: 0px;
+    text-align: left;
+    color: #83869A;
+    margin-bottom: 24px;
+    margin-top: 0px;
 }
 
 .card-container button {
@@ -160,12 +185,15 @@ margin-top: 0px;
     text-align: left;
     color: #F74780;
     margin-bottom: 32px;
-
-
 }
 
 .card-container:last-child {
     margin-bottom: 80px;
+}
+
+.card-text-container {
+    height: 112px;
+    margin-bottom: 2rem;
 }
 
 /* footer */
@@ -180,22 +208,161 @@ footer {
 }
 
 footer span {
-font-size: 28px;
-font-weight: 800;
-line-height: 35px;
-letter-spacing: 0px;
-text-align: left;
-color: #FFFFFF;
+    font-size: 28px;
+    font-weight: 800;
+    line-height: 35px;
+    letter-spacing: 0px;
+    text-align: left;
+    color: #FFFFFF;
 }
 
 .get-started-footer {
-font-size: 16px;
-font-weight: 700;
-line-height: 28px;
-letter-spacing: 0px;
-text-align: left;
-color: #FFFFFF;
-padding: 9px 24px 11px 24px;
-background: linear-gradient(180deg, #4851FF 0%, #F02AA6 100%);
-border-radius: 28px;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 28px;
+    letter-spacing: 0px;
+    text-align: left;
+    color: #FFFFFF;
+    padding: 9px 24px 11px 24px;
+    background: linear-gradient(180deg, #4851FF 0%, #F02AA6 100%);
+    border-radius: 28px;
+}
+
+.get-started-footer:hover {
+    background: linear-gradient(0deg, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), linear-gradient(180deg, #4851FF -54.32%, #F02AA6 100%);
+    cursor: pointer;
+}
+
+@media only screen and (min-width: 768px) {
+
+    .wrapper {
+        background: linear-gradient(180deg, #FFFFFF 0%, #F0F1FF 100%);
+        padding-left: 40px;
+        padding-right: 40px;
+        margin: auto;
+    }
+
+    header {
+        margin: 16px 0 105px;
+    }
+
+    .text-and-photo-container {
+        display: flex;
+    }
+
+    #tablet-main-photo {
+        display: block;
+        width: 640px;
+        transform: translate(150px, -92px);
+        z-index: 1;
+    }
+
+    #mobile-main-photo {
+        display: none;
+    }
+
+    .text-container {
+        width: 398px;
+    }
+
+    .image-container {
+        width: 250px;
+        height: 480px;
+    }
+
+    .popular-courses {
+        font-size: 24px;
+        font-weight: 800;
+        line-height: 32px;
+        letter-spacing: 0px;
+        text-align: left;
+        width: 339px;
+        height: 322px;
+        align-self: flex-end;
+    }
+
+    .card-container {
+        width: 339px;
+        height: 322px;
+    }
+
+    .card-container:nth-last-child(2) {
+        margin-bottom: 80px;
+    }
+
+    .card-text-container {
+        margin-bottom: 5rem;
+    }
+
+    /* footer */
+
+    footer {
+        padding: 0px 40px;
+    }
+}
+
+@media only screen and (min-width: 849px) {
+    #tablet-main-photo {       
+        transform: translate(400px, -185px);
+        z-index: 1;
+    }
+}
+
+@media only screen and (min-width: 1015px) {
+    #tablet-main-photo {       
+        transform: translate(500px, -185px);
+        z-index: 1;
+    }
+}
+
+@media only screen and (min-width: 1117px) {
+
+    .wrapper {
+        padding: 0px 165px;
+    }
+
+    header {
+        margin: 16px 0 178px;
+    }
+
+    .image-container {
+        width: 250px;
+        height: 585px;
+    }
+
+    #tablet-main-photo {
+        display: none;
+        max-width: 100%;
+    }
+
+    #desktop-main-photo {
+        display: block;
+        width: 1008px;
+        transform: translate(500px, -185px);
+        z-index: 1;
+    }
+
+    .popular-courses {
+        height: 322px;
+    }
+
+    .card-wrapper {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        gap: 30px;
+    }
+
+    footer {
+        padding: 0px 210px;
+    }
+}
+
+@media only screen and (min-width: 1500px) {
+    #desktop-main-photo {
+        display: block;
+        width: 1008px;
+        transform: translate(800px, -185px);
+        z-index: 1;
+    }
 }
